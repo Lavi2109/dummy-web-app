@@ -9,3 +9,11 @@ app.get("", (req, res) => {
 app.listen(PORT, () => {
   console.log(`App up at port ${PORT}`);
 });
+
+const fs = require("fs");
+
+var assetlinks = fs.readFileSync(__dirname + "/.well-known/assetlinks.json");
+app.get("/.well-known/assetlinks.json", function (req, res, next) {
+  res.set("Content-Type", "application/json");
+  res.status(200).send(assetlinks);
+});
