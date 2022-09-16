@@ -12,7 +12,7 @@ app.listen(PORT, () => {
 
 const fs = require("fs");
 
-var assetlinks = fs.readFileSync(__dirname + "/.well-known/assetlinks.json");
+var assetlinks = fs.readFileSync(__dirname + "/.we/assetlinks.json");
 app.get("/.well-known/assetlinks.json", function (req, res, next) {
   res.set("Content-Type", "application/json");
   res.status(200).send(assetlinks);
